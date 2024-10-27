@@ -1,0 +1,74 @@
+// 引入 Element Plus 的默认样式
+@import '~element-plus/theme-chalk/src/index.scss';
+
+
+
+//流光按钮
+.my-el-button {
+  width: 80px;
+  height: 40px;
+  color: #f7f3f3;
+  background: #f6f6f600;
+  position: absolute;
+  cursor: pointer;
+  border-radius: 10%;
+  z-index:1;
+}
+
+.my-el-button::before{
+  content: '';
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg,red,orange,yellow,green,cyan,blue,purple,red);
+  position: absolute;
+  filter:blur(5px);
+  top: -4px;
+  left: -4px;
+  border-radius: 10%;
+  transition: all .35%;
+  background-size: 1000%;
+  animation: amSize 40s linear infinite;
+  opacity: 0;
+  z-index:-1;
+}
+.my-el-button::after{
+  content:'';
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  position: absolute;
+  color: #ffffff;
+  background: #f4f2f200;
+  cursor: pointer;
+  border-radius: 10px;
+  z-index: -1;
+  opacity: 1;
+}
+@keyframes amSize{
+  0% {background-position: 0 0;}
+  100%{background-position: 1000% 0;}
+}
+
+.my-el-button:hover::before{
+  opacity: 1; //悬停
+}
+.my-el-button:active::after{
+  opacity: 0; //激活(按下) 
+}
+
+.my-el-button-key{
+  width: 200px !important;
+  background: #085abf2c;
+}
+
+
+//鼠标样式
+html{
+  cursor: url('@/assets/mouse/miku1.png'), auto; //引入图片
+}
+
+//鼠标悬浮预选时
+html :hover {
+  cursor: url('@/assets/mouse/miku2.png'), auto; //引入图片
+}
